@@ -153,10 +153,17 @@ header.scrolled {
 .logo {
     font-size: 1.8rem;
     font-weight: 700;
+}
+
+.logo-first {
     color: var(--primary);
 }
 
-.logo span {
+.logo-last {
+    color: #670D2F;
+}
+
+.dark-mode .logo-last {
     color: rgb(255, 209, 220);
 }
 

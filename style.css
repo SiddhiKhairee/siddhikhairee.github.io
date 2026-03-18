@@ -157,7 +157,7 @@ header.scrolled {
 }
 
 .logo span {
-    color: var(--secondary);
+    color: rgb(255, 209, 220);
 }
 
 .nav-menu {

@@ -73,7 +73,29 @@
             });
         }
         
-        // Smooth scrolling for navigation links
+
+        // Education & Experience Tab Switching
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+            var activeBtn = document.querySelector('.tab-btn[data-tab="' + tabName + '"]');
+            if (activeBtn) activeBtn.classList.add('active');
+            document.querySelectorAll('.timeline').forEach(function(t) { t.classList.add('hidden'); });
+            var activeTab = document.getElementById('tab-' + tabName);
+            if (!activeTab) return;
+            activeTab.classList.remove('hidden');
+            activeTab.querySelectorAll('.timeline-item').forEach(function(item, i) {
+                item.style.animation = 'none';
+                void item.offsetHeight;
+                item.style.animation = 'fadeSlideIn 0.5s ease ' + (i * 0.1) + 's both';
+            });
+        }
+
+        document.querySelectorAll('.tab-btn').forEach(function(btn) {
+            btn.onclick = function() {
+                var tabName = this.getAttribute('data-tab');
+                if (tabName) switchTab(tabName);
+            };
+        });
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();

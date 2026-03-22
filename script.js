@@ -64,14 +64,74 @@
         });
         
         // Form submission
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thanks for your message! This is a demo, so your message wasn\'t actually sent.');
-                contactForm.reset();
-            });
+        emailjs.init('QDdiCS0ZE06L4_Hpt'); // 🔑 Replace with your actual public key
+
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // --- Email Validation ---
+        const emailField = contactForm.querySelector('input[name="from_email"]');
+        const emailValue = emailField.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(emailValue)) {
+            emailField.style.borderColor = '#FF0066';
+            emailField.focus();
+            showFormMessage('Please enter a valid email address.', 'error');
+            return;
+        } else {
+            emailField.style.borderColor = '';
         }
+
+        // --- Disable button while sending ---
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        // --- Send via EmailJS ---
+        emailjs.sendForm(
+            'service_x5tgade',   // 🔑 Replace with your Service ID
+            'template_6bb7s6h',  // 🔑 Replace with your Template ID
+            contactForm
+        )
+        .then(function () {
+            showFormMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
+            contactForm.reset();
+        })
+        .catch(function (error) {
+            console.error('EmailJS error:', error);
+            showFormMessage('Something went wrong. Please try again.', 'error');
+        })
+        .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+        });
+    });
+}
+
+// Helper: show success/error message below the form
+function showFormMessage(message, type) {
+    // Remove any existing message
+    const existing = document.getElementById('form-message');
+    if (existing) existing.remove();
+
+    const msg = document.createElement('p');
+    msg.id = 'form-message';
+    msg.textContent = message;
+    msg.style.cssText = `
+        margin-top: 12px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: ${type === 'success' ? '#28a745' : '#FF0066'};
+    `;
+
+    contactForm.appendChild(msg);
+
+    // Auto-remove after 5 seconds
+    setTimeout(() => msg.remove(), 5000);
+}
         
 
         // Education & Experience Tab Switching

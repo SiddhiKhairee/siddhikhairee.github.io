@@ -375,112 +375,135 @@
 
         <div class="projects-grid" id="projects-grid">
 
-            <!-- Project 1 - Full Stack -->
-            <div class="project-card" data-category="fullstack">
+            <!-- Project 1 - WolfJobs -->
+            <div class="project-card" data-category="fullstack", data-opensource="true">
                 <div class="project-image">
-                    <img src="https://placehold.co/600x400/FF0066/ffffff?text=Project+1" alt="Project 1">
+                    <img src="images/Banner-edit.png" alt="Wolf Jobs">
                 </div>
                 <div class="project-info">
                     <span class="project-category-badge fullstack">Full Stack</span>
-                    <h3 class="project-title">E-commerce Website</h3>
-                    <p class="project-desc">A fully responsive e-commerce platform with product filtering, cart functionality, and secure checkout.</p>
+                    <span class="project-category-badge opensource">Open Source</span>
+                    <h3 class="project-title">WolfJobs</h3>
+                    <p class="project-desc">Contributed to an open-source full-stack job platform by implementing recruiter–candidate chat, job editing features, secure authentication, along with AI-driven question generation to streamline candidate screening.</p>
                     <div class="project-tags">
                         <span class="project-tag">React</span>
                         <span class="project-tag">Node.js</span>
+                        <span class="project-tag">Express.js</span>
                         <span class="project-tag">MongoDB</span>
+                        <span class="project-tag">RestAPI</span>
                     </div>
-                    <a href="#" class="btn">View Project</a>
+                    <a href="https://github.com/SiddhiKhairee/WolfJobs" class="btn">View Project</a>
                 </div>
             </div>
 
-            <!-- Project 2 - AI/ML -->
-            <div class="project-card" data-category="aiml">
+            <!-- Project 2 - Graph Node Classification -->
+            <div class="project-card" data-category="aiml"  data-opensource="true">
                 <div class="project-image">
-                    <img src="https://placehold.co/600x400/670D2F/ffffff?text=Project+2" alt="Project 2">
+                    <img src="images/ogb.png" alt="Project 2">
                 </div>
                 <div class="project-info">
                     <span class="project-category-badge aiml">AI / ML</span>
-                    <h3 class="project-title">ML Classification Model</h3>
-                    <p class="project-desc">An end-to-end machine learning pipeline for classification with model evaluation and visualization.</p>
+                    <span class="project-category-badge opensource">Open Source</span>
+                    <h3 class="project-title">Open Graph Benchmark Imbalanced Node Classification</h3>
+                    <p class="project-desc">Improved node classification on large-scale graph data (~2.4M nodes) by enhancing the MLP + Correct & Smooth framework with by introducing weighted sampling, MLP ensembling, and iterative label propagation to better handle class imbalance</p>
                     <div class="project-tags">
                         <span class="project-tag">Python</span>
                         <span class="project-tag">Scikit-learn</span>
-                        <span class="project-tag">PyTorch</span>
+                        <span class="project-tag">PyTorch-Geometric</span>
+                        <span class="project-tag">OGB</span>
+                        <span class="project-tag">Graph Convolution Networks</span>
+                        <!-- <span class="project-tag"></span> -->
+
                     </div>
-                    <a href="#" class="btn">View Project</a>
+                    <a href="https://github.com/SiddhiKhairee/mlp-correct-smooth-node-classification" class="btn">View Project</a>
                 </div>
             </div>
 
-            <!-- Project 3 - Open Source -->
-            <div class="project-card" data-category="full-stack" data-opensource="true">
+            <!-- Project 3 - Bird Classification -->
+            <div class="project-card" data-category="aiml" >
                 <div class="project-image">
-                    <img src="https://placehold.co/600x400/1d2144/ffffff?text=Project+3" alt="Project 3">
+                    <img src="https://placehold.co/600x400/1d2144/ffffff?text=Bird Classification" alt="Project 3">
                 </div>
                 <div class="project-info">
-                    <span class="project-category-badge fullstack">Fullstack</span>
-                    <span class="project-category-badge opensource">Open Source</span>
-                    <h3 class="project-title">Open Source Contribution</h3>
-                    <p class="project-desc">Contributed bug fixes and feature enhancements to a popular open source repository.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">GitHub</span>
-                        <span class="project-tag">JavaScript</span>
-                        <span class="project-tag">CSS</span>
-                    </div>
-                    <a href="#" class="btn">View Project</a>
-                </div>
-            </div>
-
-            <!-- Project 4 - AI/ML (hidden initially) -->
-            <div class="project-card hidden-project" data-category="aiml" data-opensource="true">
-                <div class="project-image">
-                    <img src="https://placehold.co/600x400/FF0066/ffffff?text=Project+4" alt="Project 4">
-                </div>
-                <div class="project-info">
-                    <span class="project-category-badge opensource">Open Source</span>
-                    <span class="project-category-badge aiml">AI / ML</span>
-                    <h3 class="project-title">Neural Network from Scratch</h3>
-                    <p class="project-desc">Built a fully connected neural network from scratch using NumPy, with backpropagation and gradient descent.</p>
+                    <span class="project-category-badge aiml">AI/ML</span>
+                    <!-- <span class="project-category-badge opensource">Open Source</span> -->
+                    <h3 class="project-title">Bird-Images Classification</h3>
+                    <p class="project-desc">Built a bird species classifier using CNNs and transfer learning (ResNet18), achieving ~84% test accuracy through data augmentation and optimized training.</p>
                     <div class="project-tags">
                         <span class="project-tag">Python</span>
+                        <span class="project-tag">PyTorch</span>
+                        <span class="project-tag">Torchvision</span>
                         <span class="project-tag">NumPy</span>
-                        <span class="project-tag">Pandas</span>
+                        <span class="project-tag">Python Imaging Library</span>
+
                     </div>
-                    <a href="#" class="btn">View Project</a>
+                    <a href="https://github.com/SiddhiKhairee/Bird-Species-Classification/tree/main" class="btn">View Project</a>
                 </div>
             </div>
 
-            <!-- Project 5 - Full Stack (hidden initially) -->
-            <div class="project-card hidden-project" data-category="fullstack">
+            <!-- Project 4 - Expertiza -->
+            <div class="project-card hidden-project" data-category="full-stack" data-opensource="true">
                 <div class="project-image">
-                    <img src="https://placehold.co/600x400/670D2F/ffffff?text=Project+5" alt="Project 5">
+                    <img src="images/logo.png" alt="Project 4">
+                </div>
+                <div class="project-info">
+                    <span class="project-category-badge aiml">Full Stack</span>
+                    <span class="project-category-badge opensource">Open Source</span>
+                    <h3 class="project-title">Expertiza Front End Reimplementation</h3>
+                    <p class="project-desc">Contributed to an open-source Rails + React project - Expertiza by redesigning the “View Submissions” interface using React/TypeScript, improving data organization and user navigation. Implemented dynamic grading workflows with a new Assign Grades page.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Ruby-Rails</span>
+                        <span class="project-tag">TypeScript</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Heroku</span>
+
+                    </div>
+                    <a href="https://github.com/SiddhiKhairee/reimplementation-front-end" class="btn">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project 5 - SlackPoint  -->
+            <div class="project-card hidden-project" data-category="fullstack" data-opensource="true">
+                <div class="project-image">
+                    <img src="images/sp.png" alt="Project 5">
                 </div>
                 <div class="project-info">
                     <span class="project-category-badge fullstack">Full Stack</span>
-                    <h3 class="project-title">Task Management App</h3>
-                    <p class="project-desc">A drag-and-drop task management application with user authentication and real-time updates.</p>
+                    <span class="project-category-badge opensource">Open Source</span>
+
+                    <h3 class="project-title">SlackPoint</h3>
+                    <p class="project-desc">Worked on an open-source Slack bot called SlackPoint built with Python/Flask to gamify productivity using tasks, leaderboards, and rewards. Added features like task assignment, Pomodoro timer, and pet-based engagement system.</p>
                     <div class="project-tags">
-                        <span class="project-tag">React</span>
-                        <span class="project-tag">Firebase</span>
-                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">Flask</span>
+                        <span class="project-tag">Slack-Client</span>
+                        <span class="project-tag">Slack-Event-API</span>
+                        <span class="project-tag">PyTest</span>
+                        <span class="project-tag">PyLint</span>
+
                     </div>
-                    <a href="#" class="btn">View Project</a>
+                    <a href="https://github.com/SiddhiKhairee/slackpoint-v4" class="btn">View Project</a>
                 </div>
             </div>
 
-            <!-- Project 6 - Open Source (hidden initially) -->
+            <!-- Project 6 - Stroke Prediction-->
             <div class="project-card hidden-project" data-category="aiml">
                 <div class="project-image">
-                    <img src="https://placehold.co/600x400/1d2144/ffffff?text=Project+6" alt="Project 6">
+                    <img src="https://placehold.co/600x400/1d2144/ffffff?text=Stroke Detection" alt="Project 6">
                 </div>
                 <div class="project-info">
                     <span class="project-category-badge aiml">AI / ML</span>
-                    <h3 class="project-title">Documentation Fix PR</h3>
-                    <p class="project-desc">Improved documentation and added examples for a widely used developer library on GitHub.</p>
+                    <h3 class="project-title">Stroke Detection</h3>
+                    <p class="project-desc">Developed multiple ML models (Decision Tree, Random Forest, KNN, SVM) to predict stroke risk using patient health data. Performed EDA and comparative evaluation using accuracy, precision, recall, and F-scores.</p>
                     <div class="project-tags">
-                        <span class="project-tag">Markdown</span>
-                        <span class="project-tag">Git</span>
+                        <span class="project-tag">Scikit-Learn</span>
+                        <span class="project-tag">Pandas</span>
+                        <span class="project-tag">Seaborn</span>
+                        <span class="project-tag">Numpy</span>
+                        <span class="project-tag">Imbalanced-Learn</span>
+
+
                     </div>
-                    <a href="#" class="btn">View Project</a>
+                    <a href="https://github.com/SiddhiKhairee/Stroke-Prediction-Models" class="btn">View Project</a>
                 </div>
             </div>
 

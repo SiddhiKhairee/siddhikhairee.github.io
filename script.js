@@ -172,3 +172,129 @@ function showFormMessage(message, type) {
                 }
             });
         });
+        // --- Secret Garden Logic ---
+const gardenCanvas = document.getElementById('gardenCanvas');
+const gCtx = gardenCanvas.getContext('2d');
+const island = document.getElementById('garden-island');
+const plantBtn = document.getElementById('plantFlower');
+const clearBtn = document.getElementById('clearGarden');
+const colorDots = document.querySelectorAll('.color-dot');
+
+let isDrawing = false;
+let currentColor = '#FF0066';
+
+// Set color
+colorDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+        colorDots.forEach(d => d.classList.remove('active'));
+        dot.classList.add('active');
+        currentColor = dot.dataset.color;
+    });
+});
+
+// Drawing logic
+const getCoords = (e) => {
+    const rect = gardenCanvas.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return {
+        x: clientX - rect.left,
+        y: clientY - rect.top
+    };
+};
+
+const startDrawing = (e) => {
+    isDrawing = true;
+    const coords = getCoords(e);
+    gCtx.beginPath();
+    gCtx.moveTo(coords.x, coords.y);
+};
+
+const draw = (e) => {
+    if (!isDrawing) return;
+    const coords = getCoords(e);
+    gCtx.lineWidth = 4;
+    gCtx.lineCap = 'round';
+    gCtx.strokeStyle = currentColor;
+    gCtx.lineTo(coords.x, coords.y);
+    gCtx.stroke();
+};
+
+const stopDrawing = () => {
+    isDrawing = false;
+    gCtx.closePath();
+};
+
+gardenCanvas.addEventListener('mousedown', startDrawing);
+gardenCanvas.addEventListener('mousemove', draw);
+window.addEventListener('mouseup', stopDrawing);
+
+// Touch support for mobile
+gardenCanvas.addEventListener('touchstart', (e) => { e.preventDefault(); startDrawing(e); });
+gardenCanvas.addEventListener('touchmove', (e) => { e.preventDefault(); draw(e); });
+gardenCanvas.addEventListener('touchend', stopDrawing);
+
+clearBtn.addEventListener('click', () => {
+    gCtx.clearRect(0, 0, gardenCanvas.width, gardenCanvas.height);
+});
+
+// plantBtn.addEventListener('click', () => {
+//     // Check if canvas is empty
+//     const blank = document.createElement('canvas');
+//     blank.width = gardenCanvas.width;
+//     blank.height = gardenCanvas.height;
+//     if (gardenCanvas.toDataURL() === blank.toDataURL()) return;
+
+//     const dataURL = gardenCanvas.toDataURL();
+//     const flower = document.createElement('img');
+//     flower.src = dataURL;
+//     flower.className = 'planted-flower';
+    
+//     // Size and Position
+//     const size = 30 + Math.random() * 40;
+//     flower.style.width = `${size}px`;
+    
+//     // Random placement within island boundaries
+//     const posX = Math.random() * (island.offsetWidth - size);
+//     const posY = Math.random() * (island.offsetHeight - size);
+    
+//     flower.style.left = `${posX}px`;
+//     flower.style.top = `${posY}px`;
+
+//     island.appendChild(flower);
+    
+//     // Clear the canvas for the next drawing
+//     gCtx.clearRect(0, 0, gardenCanvas.width, gardenCanvas.height);
+// });
+plantBtn.addEventListener('click', () => {
+    // Check if canvas is actually drawn on
+    const pixels = gCtx.getImageData(0, 0, gardenCanvas.width, gardenCanvas.height).data;
+    let hasDrawing = false;
+    for (let i = 3; i < pixels.length; i += 4) {
+        if (pixels[i] > 0) { hasDrawing = true; break; }
+    }
+    if (!hasDrawing) return;
+
+    // Capture as PNG (Transparent)
+    const dataURL = gardenCanvas.toDataURL("image/png");
+    
+    const flower = document.createElement('img');
+    flower.src = dataURL;
+    flower.className = 'planted-flower'; // Matches the CSS above
+    
+    const size = 50 + Math.random() * 40;
+    flower.style.width = `${size}px`;
+    
+    // Position within the island
+    const posX = Math.random() * (island.offsetWidth - size);
+    const posY = Math.random() * (island.offsetHeight - size);
+    
+    flower.style.left = `${posX}px`;
+    flower.style.top = `${posY}px`;
+    
+    // Add a slight random tilt so they look hand-placed
+    flower.style.transform = `rotate(${Math.random() * 20 - 10}deg)`;
+
+    island.appendChild(flower);
+    gCtx.clearRect(0, 0, gardenCanvas.width, gardenCanvas.height);
+});

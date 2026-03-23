@@ -58,15 +58,38 @@
             <h2 class="section-title">About Me</h2>
             
             <div class="about-content">
-                <div class="about-image">
+                <!-- <div class="about-image">
                     <img src="https://placehold.co/600x400/6f42c1/ffffff?text=About+Me" alt="About Me">
+                </div> -->
+                <div class="about-image">
+    <div class="garden-wrapper">
+        <div id="garden-island" class="garden-island">
+            </div>
+        
+        <div class="drawing-kit">
+            <canvas id="gardenCanvas" width="150" height="150"></canvas>
+            <div class="garden-controls">
+                <div class="color-picker">
+                    <button class="color-dot active" data-color="#FF0066" style="background: #FF0066;"></button>
+                    <button class="color-dot" data-color="#FFDCDC" style="background: #FFDCDC;"></button>
+                    <button class="color-dot" data-color="#670D2F" style="background: #670D2F;"></button>
                 </div>
+                <div class="action-btns">
+                    <button id="clearGarden" title="Clear Canvas"><i class="fas fa-undo"></i></button>
+                    <button id="plantFlower" class="btn-plant">Draw</button>
+                </div>
+            </div>
+        </div>
+        <p class="garden-hint">Draw something cute! Be Whimsical (ˆᴗˆ)</p>
+        <p class="garden-hint">An Idea inspired from Anna's garden website</p>
+    </div>
+</div>
                 <div class="about-text">
-                    <h3 class="about-title">Crafting digital experiences with precision</h3>
-                    <p class="about-desc">I'm a passionate web developer with over 5 years of experience creating responsive, user-friendly websites and applications. I specialize in front-end development but also have experience with back-end technologies.</p>
-                    <p class="about-desc">When I'm not coding, you can find me hiking, reading tech blogs, or experimenting with new design tools. I believe in continuous learning and staying updated with the latest industry trends.</p>
+                    <h3 class="about-title">Building cool stuff (and occasionally breaking it)</h3>
+                    <p class="about-desc">I'm currently a grad student pursuing Computer Science at NC State. I enjoy coding (just like an average comp sci nerd), and I have worked across the stack, from creating responsive web apps with React and Node.js to building ML systems using Python, PyTorch, and Scikit-learn. I started off my journey by learning full-stack Web Development, but then throughout the course I also developed interest in Machine learning, Deep Learning, and Generative AI Systems. I like working at the intersection of software engineering and AI. I am still learning and growing, and I am always looking forward to upskilling myself. </p>
+                    <p class="about-desc">When I'm not coding, you can find me watching anime(Top Pick: AOT and FMAB), reading books, or (unfortunately) doomscrolling on tiktok</p>
                     
-                    <div class="skills">
+                    <!-- <div class="skills">
                         <span class="skill">HTML</span>
                         <span class="skill">CSS</span>
                         <span class="skill">JavaScript</span>
@@ -75,7 +98,7 @@
                         <span class="skill">UI/UX Design</span>
                         <span class="skill">Responsive Design</span>
                         <span class="skill">Git</span>
-                    </div>
+                    </div> -->
                     
                     <a href="#contact" class="btn" style="margin-top: 30px;">Get In Touch</a>
                 </div>

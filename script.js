@@ -298,3 +298,53 @@ plantBtn.addEventListener('click', () => {
     island.appendChild(flower);
     gCtx.clearRect(0, 0, gardenCanvas.width, gardenCanvas.height);
 });
+
+// Project Filter Tabs
+const projectTabBtns = document.querySelectorAll('.project-tab-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+let currentFilter = 'all';
+let isExpanded = false;
+
+function applyFilter(filter) {
+    currentFilter = filter;
+
+    projectCards.forEach(card => {
+        const category = card.dataset.category;
+        const isHidden = card.classList.contains('hidden-project') && !isExpanded;
+        const matchesFilter = filter === 'all' || category === filter;
+
+        if (matchesFilter && !isHidden) {
+            card.style.display = 'block';
+        } else if (matchesFilter && card.classList.contains('hidden-project') && isExpanded) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+projectTabBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+        projectTabBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        applyFilter(this.dataset.filter);
+    });
+});
+
+// View More Button
+const viewMoreBtn = document.getElementById('view-more-btn');
+
+viewMoreBtn.addEventListener('click', function () {
+    isExpanded = !isExpanded;
+
+    if (isExpanded) {
+        this.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+        this.classList.add('expanded');
+    } else {
+        this.innerHTML = 'View More <i class="fas fa-chevron-down"></i>';
+        this.classList.remove('expanded');
+    }
+
+    applyFilter(currentFilter);
+});

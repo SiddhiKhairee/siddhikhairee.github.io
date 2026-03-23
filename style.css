@@ -999,3 +999,94 @@ footer {
         margin: 15px 0;
     }
 }
+
+/* Project Filter Tabs */
+.project-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.project-tab-btn {
+    padding: 12px 32px;
+    border-radius: 50px;
+    border: 2px solid var(--primary);
+    background: transparent;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.project-tab-btn.active,
+.project-tab-btn:hover {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(255, 0, 102, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Category Badge on each card */
+.project-category-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.project-category-badge.aiml {
+    background: rgba(255, 0, 102, 0.12);
+    color: var(--primary);
+    border: 1px solid rgba(255, 0, 102, 0.3);
+}
+
+.project-category-badge.fullstack {
+    background: rgba(103, 13, 47, 0.12);
+    color: var(--secondary);
+    border: 1px solid rgba(103, 13, 47, 0.3);
+}
+
+.dark-mode .project-category-badge.fullstack {
+    color: #FFD1DC;
+    background: rgba(255, 209, 220, 0.12);
+    border-color: rgba(255, 209, 220, 0.3);
+}
+
+.project-category-badge.opensource {
+    background: rgba(29, 33, 68, 0.1);
+    color: var(--dark);
+    border: 1px solid rgba(29, 33, 68, 0.2);
+}
+
+.dark-mode .project-category-badge.opensource {
+    color: #FFD1DC;
+    background: rgba(255, 209, 220, 0.08);
+    border-color: rgba(255, 209, 220, 0.2);
+}
+
+/* Hidden projects (View More) */
+.hidden-project {
+    display: none;
+}
+
+/* View More Button */
+.view-more-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+#view-more-btn i {
+    transition: var(--transition);
+}
+
+#view-more-btn.expanded i {
+    transform: rotate(180deg);
+}

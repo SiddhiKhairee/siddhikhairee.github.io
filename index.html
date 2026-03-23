@@ -352,64 +352,145 @@
     </section>
 
     <!-- Projects Section -->
-    <section class="projects section" id="projects">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://placehold.co/600x400/4a6cf7/ffffff?text=Project+1" alt="Project 1">
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">E-commerce Website</h3>
-                        <p class="project-desc">A fully responsive e-commerce platform with product filtering, cart functionality, and secure checkout.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">MongoDB</span>
-                        </div>
-                        <a href="#" class="btn">View Project</a>
-                    </div>
+    <!-- Projects Section -->
+<section class="projects section" id="projects">
+    <div class="container">
+        <h2 class="section-title">My Projects</h2>
+
+        <!-- Project Filter Tabs -->
+        <div class="project-tabs">
+            <button class="project-tab-btn active" data-filter="all">
+                <i class="fas fa-th"></i> All
+            </button>
+            <button class="project-tab-btn" data-filter="aiml">
+                <i class="fas fa-brain"></i> AI / ML
+            </button>
+            <button class="project-tab-btn" data-filter="fullstack">
+                <i class="fas fa-code"></i> Full Stack
+            </button>
+            <button class="project-tab-btn" data-filter="opensource">
+                <i class="fab fa-github"></i> Open Source
+            </button>
+        </div>
+
+        <div class="projects-grid" id="projects-grid">
+
+            <!-- Project 1 - Full Stack -->
+            <div class="project-card" data-category="fullstack">
+                <div class="project-image">
+                    <img src="https://placehold.co/600x400/FF0066/ffffff?text=Project+1" alt="Project 1">
                 </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://placehold.co/600x400/6f42c1/ffffff?text=Project+2" alt="Project 2">
+                <div class="project-info">
+                    <span class="project-category-badge fullstack">Full Stack</span>
+                    <h3 class="project-title">E-commerce Website</h3>
+                    <p class="project-desc">A fully responsive e-commerce platform with product filtering, cart functionality, and secure checkout.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">MongoDB</span>
                     </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Task Management App</h3>
-                        <p class="project-desc">A drag-and-drop task management application with user authentication and real-time updates.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Vue.js</span>
-                            <span class="project-tag">Firebase</span>
-                            <span class="project-tag">CSS</span>
-                        </div>
-                        <a href="#" class="btn">View Project</a>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://placehold.co/600x400/1d2144/ffffff?text=Project+3" alt="Project 3">
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Travel Blog</h3>
-                        <p class="project-desc">A visually appealing travel blog with interactive maps, photo galleries, and comment functionality.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">WordPress</span>
-                            <span class="project-tag">PHP</span>
-                            <span class="project-tag">JavaScript</span>
-                        </div>
-                        <a href="#" class="btn">View Project</a>
-                    </div>
+                    <a href="#" class="btn">View Project</a>
                 </div>
             </div>
+
+            <!-- Project 2 - AI/ML -->
+            <div class="project-card" data-category="aiml">
+                <div class="project-image">
+                    <img src="https://placehold.co/600x400/670D2F/ffffff?text=Project+2" alt="Project 2">
+                </div>
+                <div class="project-info">
+                    <span class="project-category-badge aiml">AI / ML</span>
+                    <h3 class="project-title">ML Classification Model</h3>
+                    <p class="project-desc">An end-to-end machine learning pipeline for classification with model evaluation and visualization.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Scikit-learn</span>
+                        <span class="project-tag">PyTorch</span>
+                    </div>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project 3 - Open Source -->
+            <div class="project-card" data-category="opensource">
+                <div class="project-image">
+                    <img src="https://placehold.co/600x400/1d2144/ffffff?text=Project+3" alt="Project 3">
+                </div>
+                <div class="project-info">
+                    <span class="project-category-badge opensource">Open Source</span>
+                    <h3 class="project-title">Open Source Contribution</h3>
+                    <p class="project-desc">Contributed bug fixes and feature enhancements to a popular open source repository.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">GitHub</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">CSS</span>
+                    </div>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project 4 - AI/ML (hidden initially) -->
+            <div class="project-card hidden-project" data-category="aiml">
+                <div class="project-image">
+                    <img src="https://placehold.co/600x400/FF0066/ffffff?text=Project+4" alt="Project 4">
+                </div>
+                <div class="project-info">
+                    <span class="project-category-badge aiml">AI / ML</span>
+                    <h3 class="project-title">Neural Network from Scratch</h3>
+                    <p class="project-desc">Built a fully connected neural network from scratch using NumPy, with backpropagation and gradient descent.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">NumPy</span>
+                        <span class="project-tag">Pandas</span>
+                    </div>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project 5 - Full Stack (hidden initially) -->
+            <div class="project-card hidden-project" data-category="fullstack">
+                <div class="project-image">
+                    <img src="https://placehold.co/600x400/670D2F/ffffff?text=Project+5" alt="Project 5">
+                </div>
+                <div class="project-info">
+                    <span class="project-category-badge fullstack">Full Stack</span>
+                    <h3 class="project-title">Task Management App</h3>
+                    <p class="project-desc">A drag-and-drop task management application with user authentication and real-time updates.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Firebase</span>
+                        <span class="project-tag">Node.js</span>
+                    </div>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+            </div>
+
+            <!-- Project 6 - Open Source (hidden initially) -->
+            <div class="project-card hidden-project" data-category="opensource">
+                <div class="project-image">
+                    <img src="https://placehold.co/600x400/1d2144/ffffff?text=Project+6" alt="Project 6">
+                </div>
+                <div class="project-info">
+                    <span class="project-category-badge opensource">Open Source</span>
+                    <h3 class="project-title">Documentation Fix PR</h3>
+                    <p class="project-desc">Improved documentation and added examples for a widely used developer library on GitHub.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Markdown</span>
+                        <span class="project-tag">Git</span>
+                    </div>
+                    <a href="#" class="btn">View Project</a>
+                </div>
+            </div>
+
         </div>
-    </section>
+
+        <!-- View More Button -->
+        <div class="view-more-container">
+            <button class="btn" id="view-more-btn">View More <i class="fas fa-chevron-down"></i></button>
+        </div>
+
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section class="contact section" id="contact">

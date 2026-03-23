@@ -311,12 +311,16 @@ function applyFilter(filter) {
 
     projectCards.forEach(card => {
         const category = card.dataset.category;
-        const isHidden = card.classList.contains('hidden-project') && !isExpanded;
-        const matchesFilter = filter === 'all' || category === filter;
+        const isOpenSource = card.dataset.opensource === 'true';
+        const isHiddenProject = card.classList.contains('hidden-project') && !isExpanded;
 
-        if (matchesFilter && !isHidden) {
-            card.style.display = 'block';
-        } else if (matchesFilter && card.classList.contains('hidden-project') && isExpanded) {
+        // Check if card matches the active filter
+        const matchesFilter =
+            filter === 'all' ||
+            filter === category ||
+            (filter === 'opensource' && isOpenSource);
+
+        if (matchesFilter && !isHiddenProject) {
             card.style.display = 'block';
         } else {
             card.style.display = 'none';
@@ -348,3 +352,4 @@ viewMoreBtn.addEventListener('click', function () {
 
     applyFilter(currentFilter);
 });
+
